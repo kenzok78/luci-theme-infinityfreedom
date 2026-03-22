@@ -1,82 +1,104 @@
-# luci-theme-infinityfreedom-ng (Next Generation)
+# luci-theme-ifit
 
-[ 中文说明 ](/README-zh_cn.md)
+[![license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/kenzok78/luci-theme-infinityfreedom/pulls)
+[![Release](https://img.shields.io/badge/release-v2.0-orange.svg?)](https://github.com/kenzok78/luci-theme-infinityfreedom/releases)
 
-[![license][1]][2]
-[![PRs Welcome][3]][4]
-[![Issue Welcome][5]][6]
-[![Release Version][7]][8]
-[![Release Count][9]][8]
-[![Contact Me][10]][11]
+[中文说明](README-zh_cn.md)
 
-InfinityFreedom-NG is a Luci theme customized for Homelede firmware, based on HTML5, CSS3, responsive layout, suitable for PC, Pad, and mobile devices.
+ifit is a clean HTML5 LuCI theme for OpenWrt, optimized from luci-theme-infinityfreedom-ng. Based on Bootstrap 5, Vue.js, supports dark mode, responsive layout for PC, Pad, and mobile devices.
 
-Copyright 2024 Eric <xiaoqingfengatgm@gmail.com>
+## Features
 
-This theme can also be used in other distributions of OpenWrt and is currently compatible with Luci18.
+- Bootstrap 5 + Vue.js 3
+- Dark/Light mode switching
+- Responsive design (PC/Tablet/Mobile)
+- Font Awesome icons
+- Lottie animation loading
+- Material Design inspired
 
-For information on HomeLede firmware please see:
-https://github.com/xiaoqingfengATGH/HomeLede
+## Requirements
 
-### Adding InfinityFreedom to your own LEDE/OpenWRT Build
+- OpenWrt 18.06 or later
+- LuCI Web Interface
 
-Edit your feeds.conf.default and add the following to it:
+## Installation
 
-```
-src-git infinityfreedomng https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom.git
-```
+### Compile from source
 
-Update your build environment and install the package:
+```bash
+# Add to feeds.conf.default
+src-git ifit https://github.com/kenzok78/luci-theme-infinityfreedom.git
 
-```
-$ scripts/feeds update infinityfreedomng
-$ scripts/feeds install luci-theme-infinityfreedom-ng
-$ make menuconfig
-```
-
-Go to LuCI -> Themes, select luci-infinityfreedom-ng, exit, save and build as usual.
-
-You can also compile the the theme without compile the whole firmware, make sure you are in the firmware's root build path, and then execute:
-
-```
-make package/feeds/infinityfreedomng/luci-theme-infinityfreedom-ng/compile V=s
+# Update and install
+./scripts/feeds update ifit
+./scripts/feeds install luci-theme-ifit
+make menuconfig
 ```
 
-After the command finish , you can find the ipkg in the path below (if you are not build a x86_64 firmware, change the path accordingly)
+### Build theme only
+
+```bash
+make package/luci-theme-ifit/compile V=s
+```
+
+### Online install
+
+```bash
+opkg update
+opkg install luci-theme-ifit
+```
+
+## Configuration
+
+After installation, go to **System → System → Language and Style** and select `ifit` as the theme.
+
+## Directory Structure
 
 ```
-<your_firmware_build_root>/bin/packages/x86_64/infinityfreedomng
+luci-theme-ifit/
+├── Makefile
+├── files/
+│   ├── 10_luci-theme-ifit          # UCI defaults
+│   ├── htdocs/
+│   │   ├── css/                    # Stylesheets
+│   │   ├── js/                     # JavaScript
+│   │   ├── fonts/                  # Icon fonts
+│   │   └── images/                 # Images
+│   └── templates/
+│       ├── header.htm              # Main template
+│       ├── header_login.htm         # Login header
+│       ├── sysauth.htm             # Login form
+│       └── footer.htm              # Footer
+└── screenshots/
 ```
 
-Enable the Theme
-----------------
+## Screenshots
 
-* Go to System -> System -> Language and Style
-* Choose 'infinityfreedomNG' in the Design selectbox
+![Login](/screenshots/000.Login.png)
+![Overview](/screenshots/001.Overview.png)
 
-ScreenShots
------------
+## Credits
 
-![](/screenshots/000.Login.png)
-![](/screenshots/001.Overview.png)
-![](/screenshots/002.Firewall.png)
-![](/screenshots/003.KernelLog.png)
-![](/screenshots/004.Route.png)
-![](/screenshots/005.SysLog.png)
-![](/screenshots/006_RealTimeMontor.png)
-![](/screenshots/100.System.png)
-![](/screenshots/101.SoftwarePkgs.png)
-![](/screenshots/207.upnp.png)
-![](/screenshots/304.Samba.png)
+- Original theme: [luci-theme-infinityfreedom](https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom) by Eric
+- Bootstrap: https://getbootstrap.com/
+- Vue.js: https://vuejs.org/
 
-[1]: https://img.shields.io/badge/license-Apache2-brightgreen.svg
-[2]: /LICENSE
-[3]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg
-[4]: https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom/pulls
-[5]: https://img.shields.io/badge/Issues-welcome-brightgreen.svg
-[6]: https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom/issues/new
-[7]: https://img.shields.io/badge/release-NGv1.5-orange.svg?
-[8]: https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom/releases
-[9]: https://img.shields.io/github/downloads/xiaoqingfengATGH/luci-theme-infinityfreedom/total
-[10]: https://img.shields.io/badge/Contact-telegram-blue
-[11]: https://t.me/t_homelede
+## License
+
+Apache License 2.0
+
+## Changelog
+
+### v2.0.0 (2026-03-22)
+
+- Rename theme from `infinityfreedom-ng` to `ifit`
+- Optimize directory structure
+- Fix `boardinfo` variable override bug
+- Update CSS/JS paths
+- Update copyright and maintainer info
+- Clean up uci-defaults script
+
+### v1.51 (2024-07-31)
+
+- Original infinityfreedom-ng release

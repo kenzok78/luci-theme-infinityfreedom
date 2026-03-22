@@ -1,13 +1,13 @@
 <%#
-	
-	InfinityFreedom-NG (Next Generation) is a clean HTML5 theme for LuCI.
+	ifit is a clean HTML5 theme for LuCI.
 
-	luci-theme-infinityfreedom-ng
+	luci-theme-ifit
 	Copyright 2024 Eric <xiaoqingfengatgm@gmail.com>
+	Modified by kenzok78
 
 	Have a bug? Please create an issue here on GitHub!
-	https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom/issues
-	
+	https://github.com/kenzok78/luci-theme-infinityfreedom/issues
+
 	Licensed to the public under the Apache License 2.0
 -%>
 <%
@@ -17,9 +17,8 @@
 	local http = require "luci.http"
 	local disp = require "luci.dispatcher"
 
-	local boardinfo = util.ubus("system", "board")
-	local boardinfo={}
-	boardinfo.hostname=sys.hostname()
+	local boardinfo = util.ubus("system", "board") or {}
+	boardinfo.hostname = boardinfo.hostname or sys.hostname()
 	
 	local request  = disp.context.path
 	local request2 = disp.context.request
@@ -279,19 +278,19 @@
 	<link rel="apple-touch-icon-precomposed" href="<%=media%>/logo.png" sizes="144x144">
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="<%=media%>/assets/images/favicon.ico">
+    <link rel="shortcut icon" href="<%=media%>/images/favicon.ico">
 
     <!-- App css -->
-    <link href="<%=media%>/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bs-default-stylesheet" />
-    <link href="<%=media%>/assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-default-stylesheet" />
+    <link href="<%=media%>/css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bs-default-stylesheet" />
+    <link href="<%=media%>/css/app.min.css" rel="stylesheet" type="text/css" id="app-default-stylesheet" />
 
-    <link href="<%=media%>/assets/css/bootstrap-dark.min.css" rel="stylesheet" type="text/css" id="bs-dark-stylesheet" />
-    <link href="<%=media%>/assets/css/app-dark.min.css" rel="stylesheet" type="text/css" id="app-dark-stylesheet" />
+    <link href="<%=media%>/css/bootstrap-dark.min.css" rel="stylesheet" type="text/css" id="bs-dark-stylesheet" />
+    <link href="<%=media%>/css/app-dark.min.css" rel="stylesheet" type="text/css" id="app-dark-stylesheet" />
 
     <!-- icons -->
-    <link href="<%=media%>/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="<%=media%>/css/icons.min.css" rel="stylesheet" type="text/css" />
 
-	<link href="<%=media%>/assets/css/ng.css" rel="stylesheet" type="text/css" />
+	<link href="<%=media%>/css/ng.css" rel="stylesheet" type="text/css" />
 
 	<% if node and node.css then %>
 		<link rel="stylesheet" href="<%=resource%>/<%=node.css%>">
@@ -302,10 +301,10 @@
 
 	<script src="<%=resource%>/xhr.js"></script>
 	<!-- Vendor js -->
-	<script src="<%=media%>/assets/js/vendor.min.js"></script>
-	<script src="<%=media%>/assets/js/vue.global.prod.js"></script>
+	<script src="<%=media%>/js/vendor.min.js"></script>
+	<script src="<%=media%>/js/vue.global.prod.js"></script>
 
-	<script src="<%=media%>/assets/js/lottie.min.js"></script>
+	<script src="<%=media%>/js/lottie.min.js"></script>
 
 	<script>
 	<% render_changes_asJson() %>
@@ -433,7 +432,7 @@
 <body class="lang_<%=luci.i18n.context.lang%> <%- if node then %><%= striptags( node.title ) %><%- end %> <% if luci.dispatcher.context.authsession then %>logged-in<% end %>"
     data-layout='{"mode": "dark", "width": "fluid", "menuPosition": "fixed", "sidebar": { "color": "dark", "size": "default", "showuser": false}, "topbar": {"color": "dark"}, "showRightSidebarOnPageLoad": false}'>
 	<!-- App js-->
-	<script src="<%=media%>/assets/js/app.min.js"></script>
+	<script src="<%=media%>/js/app.min.js"></script>
 	<div id="loading_cover" class="loadingCover">
 		<div id="lottie" style="width: 500px; height: 500px;"></div>
 		<script>
@@ -442,7 +441,7 @@
 				renderer: 'svg',
 				loop: true,
 				autoplay: true,
-				path: '<%=media%>/assets/js/loading.json' 
+				path: '<%=media%>/js/loading.json' 
 			});
 		</script>
 	</div>
@@ -522,7 +521,7 @@
                         <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light"
                             data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false"
                             aria-expanded="false">
-                            <img src="<%=media%>/assets/images/users/root.jpg" alt="user-image" class="rounded-circle">
+                            <img src="<%=media%>/images/users/root.jpg" alt="user-image" class="rounded-circle">
                             <span class="pro-user-name ms-1">
                                 ROOT <i class="mdi mdi-chevron-down"></i>
                             </span>
@@ -542,19 +541,19 @@
                 <div class="logo-box">
                     <a href="/cgi-bin/luci/" class="logo logo-dark text-center">
                         <span class="logo-sm">
-                            <img src="<%=media%>/assets/images/Homelede2023-logo-sm.png" alt="" height="30">
+                            <img src="<%=media%>/images/Homelede2023-logo-sm.png" alt="" height="30">
                         </span>
                         <span class="logo-lg">
-                            <img src="<%=media%>/assets/images/Homelede2023-logo-light.png" alt="" height="50">
+                            <img src="<%=media%>/images/Homelede2023-logo-light.png" alt="" height="50">
                         </span>
                     </a>
 
                     <a href="/cgi-bin/luci/" class="logo logo-light text-center">
                         <span class="logo-sm">
-                            <img src="<%=media%>/assets/images/Homelede2023-logo-sm.png" alt="" height="30">
+                            <img src="<%=media%>/images/Homelede2023-logo-sm.png" alt="" height="30">
                         </span>
                         <span class="logo-lg">
-                            <img src="<%=media%>/assets/images/Homelede2023-logo-light.png" alt="" height="50">
+                            <img src="<%=media%>/images/Homelede2023-logo-light.png" alt="" height="50">
                         </span>
                     </a>
                 </div>
@@ -796,7 +795,7 @@ if (typeof(topMenu) != "undefined") {
 					<div class="col-12">
 						<div id="homelede_page_desc_popup" class="toast fade hide" role="alert" aria-live="assertive" aria-atomic="true" data-bs-toggle="toast">
 							<div class="toast-header">
-								<img src="<%=media%>/assets/images/Homelede2023-logo-sm.png" alt="brand-logo" height="12" class="me-1">
+								<img src="<%=media%>/images/Homelede2023-logo-sm.png" alt="brand-logo" height="12" class="me-1">
 								<strong class="me-auto">PAGETITLE</strong>
 								<small></small>
 								<button type="button" class="btn-close ms-2" data-bs-dismiss="toast" aria-label="Close"></button>
