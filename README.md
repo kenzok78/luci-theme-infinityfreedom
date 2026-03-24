@@ -8,6 +8,8 @@ ifit 是一个为 OpenWrt 设计的简洁 HTML5 LuCI 主题，基于 luci-theme-
 
 ## 功能特性
 
+<small>
+
 - Bootstrap 5 + Vue.js 3
 - 深色/浅色模式切换
 - 响应式设计（PC/平板/手机）
@@ -15,10 +17,16 @@ ifit 是一个为 OpenWrt 设计的简洁 HTML5 LuCI 主题，基于 luci-theme-
 - Lottie 动画加载
 - Material Design 风格
 
+</small>
+
 ## 系统要求
+
+<small>
 
 - OpenWrt 18.06 或更高版本
 - LuCI Web 界面
+
+</small>
 
 ## 安装
 
@@ -78,9 +86,13 @@ luci-theme-ifit/
 
 ## 致谢
 
+<small>
+
 - 原始主题：[luci-theme-infinityfreedom](https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom) by Eric
 - Bootstrap: https://getbootstrap.com/
 - Vue.js: https://vuejs.org/
+
+</small>
 
 ## 许可证
 
@@ -90,6 +102,8 @@ Apache License 2.0
 
 ### v2.0.0 (2026-03-22)
 
+<small>
+
 - 主题重命名：`infinityfreedom-ng` 改为 `ifit`
 - 优化目录结构
 - 修复 `boardinfo` 变量覆盖 bug
@@ -97,6 +111,12 @@ Apache License 2.0
 - 更新版权和维护者信息
 - 清理 uci-defaults 脚本
 
+</small>
+
 ### v1.51 (2024-07-31)
 
+<small>
+
 - 原始 infinityfreedom-ng 版本发布
+
+</small>
