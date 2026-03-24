@@ -4,101 +4,99 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/kenzok78/luci-theme-infinityfreedom/pulls)
 [![Release](https://img.shields.io/badge/release-v2.0-orange.svg?)](https://github.com/kenzok78/luci-theme-infinityfreedom/releases)
 
-[中文说明](README-zh_cn.md)
+ifit 是一个为 OpenWrt 设计的简洁 HTML5 LuCI 主题，基于 luci-theme-infinityfreedom-ng 优化而来。基于 Bootstrap 5 和 Vue.js，支持深色模式，适配 PC、平板和手机等设备。
 
-ifit is a clean HTML5 LuCI theme for OpenWrt, optimized from luci-theme-infinityfreedom-ng. Based on Bootstrap 5, Vue.js, supports dark mode, responsive layout for PC, Pad, and mobile devices.
-
-## Features
+## 功能特性
 
 - Bootstrap 5 + Vue.js 3
-- Dark/Light mode switching
-- Responsive design (PC/Tablet/Mobile)
-- Font Awesome icons
-- Lottie animation loading
-- Material Design inspired
+- 深色/浅色模式切换
+- 响应式设计（PC/平板/手机）
+- Font Awesome 图标
+- Lottie 动画加载
+- Material Design 风格
 
-## Requirements
+## 系统要求
 
-- OpenWrt 18.06 or later
-- LuCI Web Interface
+- OpenWrt 18.06 或更高版本
+- LuCI Web 界面
 
-## Installation
+## 安装
 
-### Compile from source
+### 从源码编译
 
 ```bash
-# Add to feeds.conf.default
+# 添加到 feeds.conf.default
 src-git ifit https://github.com/kenzok78/luci-theme-infinityfreedom.git
 
-# Update and install
+# 更新并安装
 ./scripts/feeds update ifit
 ./scripts/feeds install luci-theme-ifit
 make menuconfig
 ```
 
-### Build theme only
+### 仅编译主题
 
 ```bash
 make package/luci-theme-ifit/compile V=s
 ```
 
-### Online install
+### 在线安装
 
 ```bash
 opkg update
 opkg install luci-theme-ifit
 ```
 
-## Configuration
+## 配置
 
-After installation, go to **System → System → Language and Style** and select `ifit` as the theme.
+安装完成后，进入 **系统 → 系统 → 语言和样式** 选择 `ifit` 主题。
 
-## Directory Structure
+## 目录结构
 
 ```
 luci-theme-ifit/
 ├── Makefile
 ├── files/
-│   ├── 10_luci-theme-ifit          # UCI defaults
+│   ├── 10_luci-theme-ifit          # UCI 默认配置
 │   ├── htdocs/
-│   │   ├── css/                    # Stylesheets
+│   │   ├── css/                    # 样式表
 │   │   ├── js/                     # JavaScript
-│   │   ├── fonts/                  # Icon fonts
-│   │   └── images/                 # Images
+│   │   ├── fonts/                  # 图标字体
+│   │   └── images/                 # 图片
 │   └── templates/
-│       ├── header.htm              # Main template
-│       ├── header_login.htm         # Login header
-│       ├── sysauth.htm             # Login form
-│       └── footer.htm              # Footer
+│       ├── header.htm              # 主模板
+│       ├── header_login.htm         # 登录页头
+│       ├── sysauth.htm             # 登录表单
+│       └── footer.htm              # 页脚
 └── screenshots/
 ```
 
-## Screenshots
+## 截图
 
-![Login](/screenshots/000.Login.png)
-![Overview](/screenshots/001.Overview.png)
+![登录](/screenshots/000.Login.png)
+![概览](/screenshots/001.Overview.png)
 
-## Credits
+## 致谢
 
-- Original theme: [luci-theme-infinityfreedom](https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom) by Eric
+- 原始主题：[luci-theme-infinityfreedom](https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom) by Eric
 - Bootstrap: https://getbootstrap.com/
 - Vue.js: https://vuejs.org/
 
-## License
+## 许可证
 
 Apache License 2.0
 
-## Changelog
+## 更新日志
 
 ### v2.0.0 (2026-03-22)
 
-- Rename theme from `infinityfreedom-ng` to `ifit`
-- Optimize directory structure
-- Fix `boardinfo` variable override bug
-- Update CSS/JS paths
-- Update copyright and maintainer info
-- Clean up uci-defaults script
+- 主题重命名：`infinityfreedom-ng` 改为 `ifit`
+- 优化目录结构
+- 修复 `boardinfo` 变量覆盖 bug
+- 更新 CSS/JS 路径
+- 更新版权和维护者信息
+- 清理 uci-defaults 脚本
 
 ### v1.51 (2024-07-31)
 
-- Original infinityfreedom-ng release
+- 原始 infinityfreedom-ng 版本发布
